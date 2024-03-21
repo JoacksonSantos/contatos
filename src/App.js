@@ -1,17 +1,22 @@
-import React from 'react';
+import "./styles.css";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import Navbar from "./components/Navbar";
+import AddContact from "./components/AddContact";
+import Home from "./components/Home";
+import EditContact from "./components/EditContact";
 
-import{ToastContainer} from "react-toastify";
-import {Switch} from "react-router-dom";
-
-import './App.css';
-import Navbar from './components/Navbar';
-const App=() => {
+function App() {
   return (
-    <div className="App">
-       <ToastContainer/>
-       <Navbar />
-       <h1>Contatos</h1>
-        
+    <div>
+      <ToastContainer />
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/add" element={<AddContact />} />
+        <Route path="/edit/:id" element={<EditContact />} />
+      </Routes>
     </div>
   );
 }
